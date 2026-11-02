@@ -31,6 +31,12 @@ Depuis Sonarr v4 / Radarr récents, la langue se règle par des **Custom Formats
 
 Pour changer l'ordre (par ex. VF > VO) : *Settings → Profiles → <profil>* et ajuste les scores. Pour tester une release : *Settings → Custom Formats* ou l'outil *Test Parsing* de Sonarr.
 
+## Si la version idéale n'existe pas
+
+1. **Repli automatique** : la meilleure release disponible au-dessus du score minimum est prise (une VO ou une VF si aucune MULTi, du 720p ou du WEB si pas de Bluray 1080p).
+2. **Upgrade automatique** : Sonarr/Radarr lisent le flux RSS des indexeurs (~15 min) et remplacent le fichier dès qu'une meilleure version sort, jusqu'au cutoff (Bluray-1080p) et au score 100 (MULTi).
+3. **Rien trouvé** : le titre reste *manquant* et est pris dès qu'une release apparaît dans le RSS. Il n'y a pas de recherche complète périodique dans l'historique des indexeurs : pour un vieux titre, lancer de temps en temps *Wanted → Search All*.
+
 ## Sous-titres : Bazarr
 
 - Relié à Sonarr (`sonarr:8989`) et Radarr (`radarr:7878`).
